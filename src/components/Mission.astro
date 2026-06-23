@@ -1,0 +1,178 @@
+---
+const values = [
+  'Honestidad en el diagnóstico y reparación',
+  'Compromiso con la seguridad del cliente',
+  'Innovación constante',
+  'Respeto por el medio ambiente',
+  'Trabajo en equipo',
+];
+---
+
+<section id="mision" class="section mission">
+  <div class="container">
+    <div class="mission-header">
+      <span class="section-label">Nuestra identidad</span>
+      <h2 class="section-title">Misión, visión y valores</h2>
+    </div>
+
+    <div class="mission-grid">
+      <article class="mission-card mission-primary">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+        </div>
+        <h3>Misión</h3>
+        <p>
+          Brindar servicios automotrices integrales, con altos estándares de calidad, utilizando tecnología de diagnóstico avanzada y personal calificado para garantizar la seguridad, el rendimiento y la satisfacción total de nuestros clientes. Nos comprometemos a ofrecer soluciones confiables, rápidas y transparentes que prolonguen la vida útil de cada vehículo.
+        </p>
+      </article>
+
+      <article class="mission-card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3>Visión</h3>
+        <p>
+          Ser un taller automotriz líder en la región, reconocido por la excelencia en el servicio, la innovación tecnológica y la confianza de nuestros clientes; consolidándonos como la primera opción en mantenimiento y reparación de vehículos en la ciudad de Medellín.
+        </p>
+      </article>
+
+      <article class="mission-card mission-values">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Valores corporativos</h3>
+        <ul class="values-list">
+          {values.map((value) => (
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              {value}
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+
+  .mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  }
+
+  .mission-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .mission-header .section-label {
+    justify-content: center;
+  }
+
+  .mission-header .section-label::before {
+    display: none;
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .mission-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    height: 100%;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .mission-card:hover {
+    border-color: rgba(0, 52, 120, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .mission-primary {
+    border-color: rgba(0, 52, 120, 0.15);
+    background: linear-gradient(180deg, rgba(0, 52, 120, 0.06) 0%, var(--bg-card) 40%);
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 52, 120, 0.08);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .mission-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .values-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .values-list svg {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .mission-grid {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+  }
+</style>

@@ -1,0 +1,493 @@
+---
+const features = [
+  {
+    icon: 'experience',
+    title: 'Experiencia',
+    description:
+      'Con más de 20 años de experiencia, ofrecemos diagnóstico, mantenimiento y reparación automotriz con calidad y precisión.',
+  },
+  {
+    icon: 'quality',
+    title: 'Calidad',
+    description:
+      'Trabajamos exclusivamente con repuestos de alta calidad y certificación garantizada, seleccionados para asegurar el mejor desempeño de tu vehículo.',
+  },
+  {
+    icon: 'service',
+    title: 'Servicio',
+    description:
+      'Nos interesa tu seguridad y satisfacción: para nosotros no es solo un carro reparado, es un cliente seguro y completamente satisfecho.',
+  },
+];
+
+const services = [
+  {
+    title: 'Distribución',
+    image: '/servicios/distribucion.png',
+    alt: 'Kit de distribución: correa original, tensor, bomba de agua OEM, refrigerante y mano de obra',
+    description:
+      'El kit de correa de distribución es uno de los mantenimientos más críticos para la protección del motor. Una correa en mal estado puede causar daños severos y reparaciones costosas, por eso realizamos el cambio completo del kit con precisión, repuestos confiables y una instalación segura que garantiza la sincronización perfecta del motor. Tu vehículo queda funcionando suave, estable y protegido para muchos kilómetros más.',
+  },
+  {
+    title: 'Frenos y Suspensión',
+    image: '/servicios/frenos-suspension.png',
+    alt: 'Frenos y suspensión: cambio de pastillas y discos, revisión de suspensión',
+    description:
+      'En frenos y suspensión no se improvisa: se confía en la experiencia. Con más de 20 años cuidando la seguridad de nuestros clientes, realizamos diagnósticos precisos y mantenimientos profesionales que garantizan un frenado firme, una conducción estable y la tranquilidad que necesitas en cada viaje. Tu vida y la de tu familia dependen de un sistema de frenos y una suspensión en perfecto estado; por eso trabajamos con repuestos de calidad, técnicos expertos y procedimientos confiables que aseguran que tu vehículo responda cuando más lo necesitas.',
+  },
+  {
+    title: 'Cambio de Aceite Completo',
+    image: '/servicios/cambio-aceite.png',
+    alt: 'Cambio de aceite completo con aceite Motorcraft, filtros de aceite, aire del motor y aire acondicionado',
+    description:
+      'Tu motor merece lo mejor: haz el cambio de aceite a tiempo y dale a tu carro la potencia, protección y vida útil que necesita. ¡No esperes a que suene, cuídalo hoy!',
+  },
+  {
+    title: 'Afinamiento Motor',
+    image: '/servicios/afinamiento-motor.png',
+    alt: 'Afinamiento motor Fiesta 2011-2018: bujías, válvula PCV, limpieza de inyectores y más',
+    description:
+      'Un motor bien afinado es sinónimo de potencia, ahorro y seguridad. Con nuestra experiencia de más de dos décadas, realizamos un afinamiento completo que optimiza el rendimiento del vehículo, mejora el consumo de combustible y prolonga la vida útil del motor. Revisamos cada componente clave con precisión técnica y utilizamos repuestos de calidad para garantizar que tu carro funcione suave, estable y con la respuesta que necesitas en cualquier camino.',
+  },
+];
+---
+
+<section id="servicios" class="section features">
+  <div class="container">
+    <div class="features-header">
+      <span class="section-label">Por qué elegirnos</span>
+      <h2 class="section-title">Excelencia en cada reparación</h2>
+      <p class="section-subtitle">
+        Tecnología de diagnóstico avanzada, personal calificado y un compromiso real con la seguridad de su vehículo.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((feature, i) => (
+        <article class="feature-card" style={`--delay: ${i * 0.1}s`}>
+          <div class="feature-icon" data-icon={feature.icon}>
+            {feature.icon === 'experience' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            )}
+            {feature.icon === 'quality' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            )}
+            {feature.icon === 'service' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            )}
+          </div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-desc">{feature.description}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="services-block">
+      <div class="services-header">
+        <span class="section-label">Nuestros paquetes</span>
+        <h2 class="section-title">Servicios especializados</h2>
+        <p class="section-subtitle">
+          Mantenimiento preventivo y correctivo con repuestos de calidad y mano de obra profesional.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {services.map((service, i) => (
+          <button
+            type="button"
+            class="service-card"
+            style={`--delay: ${i * 0.1}s`}
+            data-service-image={service.image}
+            data-service-alt={service.alt}
+            data-service-title={service.title}
+            data-service-description={service.description ?? ''}
+            aria-label={`Ver ${service.title}`}
+          >
+            <img
+              src={service.image}
+              alt={service.alt}
+              loading="lazy"
+              width={200}
+              height={200}
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="service-modal" id="service-modal" hidden aria-hidden="true">
+    <div class="service-modal__backdrop" data-close-modal></div>
+    <div
+      class="service-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="service-modal-title"
+      aria-describedby="service-modal-description"
+    >
+      <button type="button" class="service-modal__close" data-close-modal aria-label="Cerrar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <p class="service-modal__title" id="service-modal-title"></p>
+      <img class="service-modal__image" src="" alt="" />
+      <div class="service-modal__description-wrap" id="service-modal-description-wrap" hidden>
+        <p class="service-modal__description-label">Descripción</p>
+        <p class="service-modal__description" id="service-modal-description"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const modal = document.getElementById('service-modal');
+  const modalImage = modal?.querySelector('.service-modal__image');
+  const modalTitle = modal?.querySelector('.service-modal__title');
+  const modalDescription = modal?.querySelector('.service-modal__description');
+  const modalDescriptionWrap = modal?.querySelector('#service-modal-description-wrap');
+  let lastFocused: HTMLElement | null = null;
+
+  function openModal(button: HTMLButtonElement) {
+    if (!modal || !modalImage || !modalTitle) return;
+
+    const description = button.dataset.serviceDescription ?? '';
+
+    lastFocused = button;
+    modalImage.src = button.dataset.serviceImage ?? '';
+    modalImage.alt = button.dataset.serviceAlt ?? '';
+    modalTitle.textContent = button.dataset.serviceTitle ?? '';
+
+    if (modalDescription && modalDescriptionWrap) {
+      if (description) {
+        modalDescription.textContent = description;
+        modalDescriptionWrap.hidden = false;
+        modal.querySelector('.service-modal__dialog')?.setAttribute('aria-describedby', 'service-modal-description');
+      } else {
+        modalDescription.textContent = '';
+        modalDescriptionWrap.hidden = true;
+        modal.querySelector('.service-modal__dialog')?.removeAttribute('aria-describedby');
+      }
+    }
+
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    modal.querySelector<HTMLButtonElement>('.service-modal__close')?.focus();
+  }
+
+  function closeModal() {
+    if (!modal || !modalImage) return;
+
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    modalDescription && (modalDescription.textContent = '');
+    modalDescriptionWrap && (modalDescriptionWrap.hidden = true);
+    document.body.style.overflow = '';
+    lastFocused?.focus();
+    lastFocused = null;
+  }
+
+  document.querySelectorAll('.service-card').forEach((card) => {
+    card.addEventListener('click', () => openModal(card as HTMLButtonElement));
+  });
+
+  modal?.querySelectorAll('[data-close-modal]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.hidden) {
+      closeModal();
+    }
+  });
+</script>
+
+<style>
+  .features {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+
+  .features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  }
+
+  .features-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .features-header .section-label {
+    justify-content: center;
+  }
+
+  .features-header .section-label::before {
+    display: none;
+  }
+
+  .features-header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    animation: fadeUp 0.6s ease backwards;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 52, 120, 0.25);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(0, 52, 120, 0.1) 0%, rgba(0, 52, 120, 0.05) 100%);
+    border: 1px solid rgba(0, 52, 120, 0.15);
+    border-radius: var(--radius-md);
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .services-block {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .services-header .section-label {
+    justify-content: center;
+  }
+
+  .services-header .section-label::before {
+    display: none;
+  }
+
+  .services-header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    animation: fadeUp 0.6s ease backwards;
+    animation-delay: var(--delay);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 52, 120, 0.25);
+    box-shadow: var(--shadow);
+  }
+
+  .service-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  .service-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+  }
+
+  .service-modal[hidden] {
+    display: none;
+  }
+
+  .service-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.82);
+    backdrop-filter: blur(4px);
+  }
+
+  .service-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 560px);
+    max-height: 90vh;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: modalIn 0.25s ease;
+    overflow-y: auto;
+  }
+
+  @keyframes modalIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .service-modal__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .service-modal__close:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+  }
+
+  .service-modal__title {
+    margin: 0 2.5rem 0.75rem 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .service-modal__image {
+    width: 100%;
+    max-height: min(50vh, 420px);
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+
+  .service-modal__description-wrap {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .service-modal__description-label {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .service-modal__description {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 280px;
+      gap: 0.75rem;
+    }
+  }
+</style>
