@@ -23,103 +23,181 @@ const features = [
 const services = [
   {
     title: 'Distribución',
-    image: '/servicios/distribucion.png',
-    alt: 'Kit de distribución: correa original, tensor, bomba de agua OEM, refrigerante y mano de obra',
+    image: '/servicios/distribucion.jpeg',
+    alt: 'Kit original de distribución: correa, tensor, bomba de agua OEM, refrigerante y mano de obra especializada',
     description:
       'El kit de correa de distribución es uno de los mantenimientos más críticos para la protección del motor. Una correa en mal estado puede causar daños severos y reparaciones costosas, por eso realizamos el cambio completo del kit con precisión, repuestos confiables y una instalación segura que garantiza la sincronización perfecta del motor. Tu vehículo queda funcionando suave, estable y protegido para muchos kilómetros más.',
   },
   {
     title: 'Frenos y Suspensión',
-    image: '/servicios/frenos-suspension.png',
-    alt: 'Frenos y suspensión: cambio de pastillas y discos, revisión de suspensión',
+    image: '/servicios/frenos-suspension.jpeg',
+    alt: 'Frenos y suspensión: cambio de pastillas y discos, revisión de suspensión y amortiguadores',
     description:
       'En frenos y suspensión no se improvisa: se confía en la experiencia. Con más de 20 años cuidando la seguridad de nuestros clientes, realizamos diagnósticos precisos y mantenimientos profesionales que garantizan un frenado firme, una conducción estable y la tranquilidad que necesitas en cada viaje. Tu vida y la de tu familia dependen de un sistema de frenos y una suspensión en perfecto estado; por eso trabajamos con repuestos de calidad, técnicos expertos y procedimientos confiables que aseguran que tu vehículo responda cuando más lo necesitas.',
   },
   {
     title: 'Cambio de Aceite Completo',
-    image: '/servicios/cambio-aceite.png',
+    image: '/servicios/cambio-aceite.jpeg',
     alt: 'Cambio de aceite completo con aceite Motorcraft, filtros de aceite, aire del motor y aire acondicionado',
     description:
       'Tu motor merece lo mejor: haz el cambio de aceite a tiempo y dale a tu carro la potencia, protección y vida útil que necesita. ¡No esperes a que suene, cuídalo hoy!',
   },
   {
-    title: 'Afinamiento Motor',
-    image: '/servicios/afinamiento-motor.png',
-    alt: 'Afinamiento motor Fiesta 2011-2018: bujías, válvula PCV, limpieza de inyectores y más',
+    title: 'Mantenimiento Mayor',
+    image: '/servicios/mantenimiento-mayor.jpeg',
+    alt: 'Mantenimiento mayor para Ford: bujías, válvula PCV, limpieza de inyectores, cables de alta y más',
     description:
-      'Un motor bien afinado es sinónimo de potencia, ahorro y seguridad. Con nuestra experiencia de más de dos décadas, realizamos un afinamiento completo que optimiza el rendimiento del vehículo, mejora el consumo de combustible y prolonga la vida útil del motor. Revisamos cada componente clave con precisión técnica y utilizamos repuestos de calidad para garantizar que tu carro funcione suave, estable y con la respuesta que necesitas en cualquier camino.',
+      'Un motor bien afinado es sinónimo de potencia, ahorro y seguridad. Con nuestra experiencia de más de dos décadas, realizamos un mantenimiento mayor completo que optimiza el rendimiento del vehículo, mejora el consumo de combustible y prolonga la vida útil del motor. Revisamos cada componente clave con precisión técnica y utilizamos repuestos de calidad para garantizar que tu carro funcione suave, estable y con la respuesta que necesitas en cualquier camino.',
   },
 ];
 ---
 
 <section id="servicios" class="section features">
-  <div class="container">
-    <div class="features-header">
-      <span class="section-label">Por qué elegirnos</span>
-      <h2 class="section-title">Excelencia en cada reparación</h2>
-      <p class="section-subtitle">
-        Tecnología de diagnóstico avanzada, personal calificado y un compromiso real con la seguridad de su vehículo.
-      </p>
+  <div class="services-block">
+    <div class="services-bg" aria-hidden="true">
+      <div class="services-gradient"></div>
+      <div class="services-grid"></div>
+      <div class="services-glow services-glow-1"></div>
+      <div class="services-glow services-glow-2"></div>
+      <div class="services-glow services-glow-3"></div>
+      <div class="services-decoration">
+        <span class="services-shape shape-a"></span>
+        <span class="services-shape shape-b"></span>
+        <span class="services-shape shape-c"></span>
+      </div>
     </div>
 
-    <div class="features-grid">
-      {features.map((feature, i) => (
-        <article class="feature-card" style={`--delay: ${i * 0.1}s`}>
-          <div class="feature-icon" data-icon={feature.icon}>
-            {feature.icon === 'experience' && (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            )}
-            {feature.icon === 'quality' && (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="M9 12l2 2 4-4"/>
-              </svg>
-            )}
-            {feature.icon === 'service' && (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            )}
-          </div>
-          <h3 class="feature-title">{feature.title}</h3>
-          <p class="feature-desc">{feature.description}</p>
-        </article>
-      ))}
-    </div>
-
-    <div class="services-block">
+    <div class="container services-inner">
       <div class="services-header">
         <span class="section-label">Nuestros paquetes</span>
-        <h2 class="section-title">Servicios especializados</h2>
+        <h2 class="section-title">Servicios <span class="services-highlight">especializados</span></h2>
         <p class="section-subtitle">
           Mantenimiento preventivo y correctivo con repuestos de calidad y mano de obra profesional.
         </p>
       </div>
 
-      <div class="services-grid">
-        {services.map((service, i) => (
-          <button
-            type="button"
-            class="service-card"
-            style={`--delay: ${i * 0.1}s`}
-            data-service-image={service.image}
-            data-service-alt={service.alt}
-            data-service-title={service.title}
-            data-service-description={service.description ?? ''}
-            aria-label={`Ver ${service.title}`}
-          >
-            <img
-              src={service.image}
-              alt={service.alt}
-              loading="lazy"
-              width={200}
-              height={200}
-            />
+      <div class="services-carousel" id="services-carousel" aria-roledescription="carousel" aria-label="Servicios especializados">
+        <div class="services-visual-wrap">
+          <div class="services-pulse-ring"></div>
+          <div class="services-pulse-ring services-pulse-ring--delay"></div>
+
+          <div class="services-carousel__viewport">
+            <div class="services-carousel__status">
+              <span class="services-status-label">Paquete activo</span>
+              <span class="services-status-pulse"></span>
+            </div>
+
+            <div class="services-carousel__track" id="services-track">
+              {services.map((service, i) => (
+                <button
+                  type="button"
+                  class={`services-slide${i === 0 ? ' is-active' : ''}`}
+                  data-index={i}
+                  data-service-image={service.image}
+                  data-service-alt={service.alt}
+                  data-service-title={service.title}
+                  data-service-description={service.description ?? ''}
+                  aria-label={`Ver detalle de ${service.title}`}
+                  aria-roledescription="slide"
+                  aria-hidden={i === 0 ? 'false' : 'true'}
+                >
+                  <div class="services-slide__media">
+                    <img
+                      src={service.image}
+                      alt={service.alt}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      width={1200}
+                      height={675}
+                    />
+                    <div class="services-scan-line" aria-hidden="true"></div>
+                  </div>
+                  <div class="services-slide__info">
+                    <div class="services-slide__meta">
+                      <span class="services-slide__badge">
+                        <span class="services-badge-dot"></span>
+                        Paquete {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <h3 class="services-slide__title">{service.title}</h3>
+                    </div>
+                    <span class="services-slide__cta">
+                      Ver detalle
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="services-carousel__controls">
+          <button type="button" class="services-nav btn-lift" id="services-prev" aria-label="Servicio anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
           </button>
+
+          <div class="services-dots" role="tablist" aria-label="Seleccionar servicio">
+            {services.map((service, i) => (
+              <button
+                type="button"
+                class={`services-dot${i === 0 ? ' is-active' : ''}`}
+                data-dot={i}
+                role="tab"
+                aria-selected={i === 0 ? 'true' : 'false'}
+                aria-label={service.title}
+              ></button>
+            ))}
+          </div>
+
+          <button type="button" class="services-nav btn-lift" id="services-next" aria-label="Siguiente servicio">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="features-block">
+      <div class="features-header">
+        <span class="section-label reveal" style="--reveal-delay: 0s">Por qué elegirnos</span>
+        <h2 class="section-title reveal" style="--reveal-delay: 0.12s">Excelencia en cada reparación</h2>
+        <p class="section-subtitle reveal" style="--reveal-delay: 0.22s">
+          Tecnología de diagnóstico avanzada, personal calificado y un compromiso real con la seguridad de su vehículo.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        {features.map((feature, i) => (
+          <article class="feature-card card-lift reveal" style={`--reveal-delay: ${0.1 + i * 0.12}s`}>
+            <div class="feature-icon" data-icon={feature.icon}>
+              {feature.icon === 'experience' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              )}
+              {feature.icon === 'quality' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              )}
+              {feature.icon === 'service' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="feature-title">{feature.title}</h3>
+            <p class="feature-desc">{feature.description}</p>
+          </article>
         ))}
       </div>
     </div>
@@ -150,18 +228,68 @@ const services = [
 </section>
 
 <script>
+  const carousel = document.getElementById('services-carousel');
+  const track = document.getElementById('services-track');
+  const slides = track ? Array.from(track.querySelectorAll<HTMLButtonElement>('.services-slide')) : [];
+  const dots = carousel ? Array.from(carousel.querySelectorAll<HTMLButtonElement>('.services-dot')) : [];
+  const prevBtn = document.getElementById('services-prev');
+  const nextBtn = document.getElementById('services-next');
   const modal = document.getElementById('service-modal');
-  const modalImage = modal?.querySelector('.service-modal__image');
+  const modalImage = modal?.querySelector('.service-modal__image') as HTMLImageElement | null;
   const modalTitle = modal?.querySelector('.service-modal__title');
   const modalDescription = modal?.querySelector('.service-modal__description');
   const modalDescriptionWrap = modal?.querySelector('#service-modal-description-wrap');
+
+  let current = 0;
+  let autoplayId: number | undefined;
   let lastFocused: HTMLElement | null = null;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+  const AUTOPLAY_MS = 5200;
+
+  function goTo(index: number) {
+    if (!slides.length) return;
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      const active = i === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
+    dots.forEach((dot, i) => {
+      const active = i === current;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    track?.style.setProperty('--current', String(current));
+  }
+
+  function next() {
+    goTo(current + 1);
+  }
+
+  function prev() {
+    goTo(current - 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = window.setInterval(next, AUTOPLAY_MS);
+  }
+
+  function stopAutoplay() {
+    if (autoplayId !== undefined) {
+      window.clearInterval(autoplayId);
+      autoplayId = undefined;
+    }
+  }
 
   function openModal(button: HTMLButtonElement) {
     if (!modal || !modalImage || !modalTitle) return;
 
     const description = button.dataset.serviceDescription ?? '';
-
     lastFocused = button;
     modalImage.src = button.dataset.serviceImage ?? '';
     modalImage.alt = button.dataset.serviceAlt ?? '';
@@ -179,6 +307,7 @@ const services = [
       }
     }
 
+    stopAutoplay();
     modal.hidden = false;
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -191,16 +320,70 @@ const services = [
     modal.hidden = true;
     modal.setAttribute('aria-hidden', 'true');
     modalImage.src = '';
-    modalDescription && (modalDescription.textContent = '');
-    modalDescriptionWrap && (modalDescriptionWrap.hidden = true);
+    if (modalDescription) modalDescription.textContent = '';
+    if (modalDescriptionWrap) modalDescriptionWrap.hidden = true;
     document.body.style.overflow = '';
     lastFocused?.focus();
     lastFocused = null;
+    startAutoplay();
   }
 
-  document.querySelectorAll('.service-card').forEach((card) => {
-    card.addEventListener('click', () => openModal(card as HTMLButtonElement));
+  prevBtn?.addEventListener('click', () => {
+    prev();
+    startAutoplay();
   });
+
+  nextBtn?.addEventListener('click', () => {
+    next();
+    startAutoplay();
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      goTo(Number(dot.dataset.dot));
+      startAutoplay();
+    });
+  });
+
+  slides.forEach((slide) => {
+    slide.addEventListener('click', () => openModal(slide));
+  });
+
+  carousel?.addEventListener('mouseenter', stopAutoplay);
+  carousel?.addEventListener('mouseleave', startAutoplay);
+  carousel?.addEventListener('focusin', stopAutoplay);
+  carousel?.addEventListener('focusout', (event) => {
+    if (!carousel.contains(event.relatedTarget as Node | null)) startAutoplay();
+  });
+
+  track?.addEventListener(
+    'touchstart',
+    (event) => {
+      touchStartX = event.changedTouches[0]?.clientX ?? 0;
+      touchDeltaX = 0;
+      stopAutoplay();
+    },
+    { passive: true },
+  );
+
+  track?.addEventListener(
+    'touchmove',
+    (event) => {
+      touchDeltaX = (event.changedTouches[0]?.clientX ?? 0) - touchStartX;
+    },
+    { passive: true },
+  );
+
+  track?.addEventListener(
+    'touchend',
+    () => {
+      if (Math.abs(touchDeltaX) > 50) {
+        touchDeltaX < 0 ? next() : prev();
+      }
+      startAutoplay();
+    },
+    { passive: true },
+  );
 
   modal?.querySelectorAll('[data-close-modal]').forEach((el) => {
     el.addEventListener('click', closeModal);
@@ -209,24 +392,34 @@ const services = [
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal && !modal.hidden) {
       closeModal();
+      return;
+    }
+
+    if (!carousel || modal?.hidden === false) return;
+    if (event.key === 'ArrowLeft') {
+      prev();
+      startAutoplay();
+    }
+    if (event.key === 'ArrowRight') {
+      next();
+      startAutoplay();
     }
   });
+
+  goTo(0);
+  startAutoplay();
 </script>
 
 <style>
   .features {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     position: relative;
+    padding-top: 0;
+    overflow: clip;
   }
 
   .features::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+    content: none;
   }
 
   .features-header {
@@ -255,29 +448,32 @@ const services = [
   .feature-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 4px;
     padding: 2rem;
-    transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
-    animation: fadeUp 0.6s ease backwards;
-    animation-delay: var(--delay);
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    transition-delay: var(--reveal-delay, 0s);
   }
 
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .feature-card.is-visible {
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    transition-delay: 0s;
   }
 
-  .feature-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0, 52, 120, 0.25);
+  .feature-card.is-visible:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 52, 120, 0.35);
     background: var(--bg-card-hover);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 25px rgba(0, 52, 120, 0.2);
   }
 
   .feature-icon {
@@ -286,9 +482,9 @@ const services = [
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, rgba(0, 52, 120, 0.1) 0%, rgba(0, 52, 120, 0.05) 100%);
-    border: 1px solid rgba(0, 52, 120, 0.15);
-    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(0, 52, 120, 0.12) 0%, rgba(0, 52, 120, 0.05) 100%);
+    border: 1px solid rgba(0, 52, 120, 0.2);
+    border-radius: 4px;
     color: var(--accent);
     margin-bottom: 1.25rem;
   }
@@ -306,67 +502,466 @@ const services = [
   }
 
   .services-block {
-    margin-top: 5rem;
-    padding-top: 4rem;
-    border-top: 1px solid var(--border);
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 6rem 0 5rem;
+    overflow: hidden;
+  }
+
+  .services-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .features-block {
+    margin-top: 0;
+    padding-top: 5rem;
+    border-top: none;
+  }
+
+  .services-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .services-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 75% 15%, rgba(0, 52, 120, 0.16) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 15% 85%, rgba(1, 7, 56, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 45% at 50% 50%, rgba(43, 125, 233, 0.06) 0%, transparent 70%),
+      linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 45%, var(--bg-secondary) 100%);
+  }
+
+  .services-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(1, 7, 56, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(1, 7, 56, 0.045) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 25%, transparent 85%);
+  }
+
+  .services-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+  }
+
+  .services-glow-1 {
+    width: min(520px, 55vw);
+    height: min(520px, 55vw);
+    top: -12%;
+    right: -8%;
+    background: rgba(0, 52, 120, 0.18);
+  }
+
+  .services-glow-2 {
+    width: min(420px, 48vw);
+    height: min(420px, 48vw);
+    bottom: -8%;
+    left: -6%;
+    background: rgba(1, 7, 56, 0.14);
+  }
+
+  .services-glow-3 {
+    width: min(360px, 40vw);
+    height: min(360px, 40vw);
+    top: 40%;
+    left: 55%;
+    background: rgba(43, 125, 233, 0.1);
+  }
+
+  .services-decoration {
+    position: absolute;
+    inset: 0;
+  }
+
+  .services-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    animation: servicesFloat 6s ease-in-out infinite;
+  }
+
+  .shape-a {
+    width: 80px;
+    height: 80px;
+    background: var(--accent);
+    top: 16%;
+    left: 6%;
+    animation-delay: 0s;
+  }
+
+  .shape-b {
+    width: 60px;
+    height: 60px;
+    background: var(--navy, #010738);
+    top: 55%;
+    right: 7%;
+    animation-delay: 2s;
+  }
+
+  .shape-c {
+    width: 100px;
+    height: 100px;
+    background: var(--accent);
+    bottom: 14%;
+    left: 3%;
+    animation-delay: 4s;
+  }
+
+  @keyframes servicesFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
   }
 
   .services-header {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.75rem;
   }
 
   .services-header .section-label {
     justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: servicesSlideInUp 0.8s ease forwards;
   }
 
   .services-header .section-label::before {
     display: none;
   }
 
+  .services-header .section-title {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: servicesSlideInUp 0.8s ease 0.15s forwards;
+  }
+
   .services-header .section-subtitle {
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: servicesFadeInUp 0.8s ease 0.35s forwards;
   }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    max-width: 560px;
+  .services-highlight {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @keyframes servicesSlideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes servicesFadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .services-carousel {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: servicesSlideInUp 0.8s ease 0.3s forwards;
   }
 
-  .service-card {
-    aspect-ratio: 1 / 1;
+  .services-visual-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .services-pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 102%;
+    height: 104%;
+    border: 2px solid rgba(0, 52, 120, 0.28);
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    animation: servicesPulse 3s infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .services-pulse-ring--delay {
+    animation-delay: 1.5s;
+    border-color: rgba(43, 125, 233, 0.18);
+  }
+
+  @keyframes servicesPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.98);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.06);
+      opacity: 0;
+    }
+  }
+
+  .services-carousel__viewport {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .services-carousel__status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .services-status-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .services-status-pulse {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: servicesPulseDot 1.5s ease-in-out infinite;
+  }
+
+  @keyframes servicesPulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .services-carousel__track {
+    display: flex;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(calc(var(--current, 0) * -100%));
+  }
+
+  .services-slide {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
     width: 100%;
     padding: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--bg-card);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
     cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    animation: fadeUp 0.6s ease backwards;
-    animation-delay: var(--delay);
+    appearance: none;
   }
 
-  .service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 52, 120, 0.25);
-    box-shadow: var(--shadow);
+  .services-slide:focus-visible {
+    outline: 2px solid var(--accent-bright);
+    outline-offset: -4px;
   }
 
-  .service-card:focus-visible {
+  .services-slide__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(1, 7, 56, 0.06) 0%, transparent 100%);
+  }
+
+  .services-slide__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    opacity: 0.92;
+    transform: scale(1.01);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .services-slide.is-active .services-slide__media img,
+  .services-slide:hover .services-slide__media img {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  .services-scan-line {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: servicesScan 3s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .services-slide.is-active .services-scan-line {
+    opacity: 1;
+  }
+
+  @keyframes servicesScan {
+    0%, 100% { top: 12%; opacity: 0; }
+    10% { opacity: 0.9; }
+    50% { top: 82%; opacity: 0.9; }
+    60% { opacity: 0; }
+  }
+
+  .services-slide__info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem 1.25rem;
+    padding: 1.15rem 1.3rem 1.3rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .services-slide__meta {
+    display: grid;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+
+  .services-slide__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+    background: rgba(0, 52, 120, 0.08);
+    border: 1px solid rgba(0, 52, 120, 0.2);
+    border-radius: 4px;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .services-badge-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: servicesPulseDot 2s ease-in-out infinite;
+  }
+
+  .services-slide__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .services-slide__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.05rem;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px var(--accent-glow);
+    transition: all 0.3s ease;
+  }
+
+  .services-slide:hover .services-slide__cta {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px var(--accent-glow);
+  }
+
+  .services-carousel__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: servicesFadeInUp 0.8s ease 0.55s forwards;
+  }
+
+  .services-nav {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg-card);
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .services-nav:hover {
+    transform: translateY(-2px);
+    background: var(--bg-card-hover);
+    border-color: rgba(0, 52, 120, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 52, 120, 0.2);
+  }
+
+  .services-nav:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 
-  .service-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
+  .services-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .services-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(1, 7, 56, 0.22);
+    cursor: pointer;
+    transition: width 0.3s, background 0.3s;
+  }
+
+  .services-dot.is-active {
+    width: 28px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+  }
+
+  .services-dot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   .service-modal {
@@ -392,12 +987,12 @@ const services = [
   .service-modal__dialog {
     position: relative;
     z-index: 1;
-    width: min(92vw, 560px);
+    width: min(92vw, 640px);
     max-height: 90vh;
     padding: 1rem;
     background: var(--bg-card);
     border: 1px solid var(--border-strong);
-    border-radius: var(--radius-lg);
+    border-radius: 4px;
     box-shadow: var(--shadow-lg);
     animation: modalIn 0.25s ease;
     overflow-y: auto;
@@ -424,14 +1019,15 @@ const services = [
     width: 36px;
     height: 36px;
     border: 1px solid var(--border);
-    border-radius: 50%;
+    border-radius: 4px;
     background: var(--bg-secondary);
     color: var(--text-primary);
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
+    transition: all 0.3s ease;
   }
 
   .service-modal__close:hover {
+    transform: translateY(-2px);
     background: var(--bg-card-hover);
     border-color: var(--border-strong);
   }
@@ -448,7 +1044,7 @@ const services = [
     width: 100%;
     max-height: min(50vh, 420px);
     object-fit: contain;
-    border-radius: var(--radius-md);
+    border-radius: 4px;
     display: block;
   }
 
@@ -483,11 +1079,28 @@ const services = [
     }
   }
 
-  @media (max-width: 560px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 280px;
-      gap: 0.75rem;
+  @media (max-width: 640px) {
+    .services-pulse-ring {
+      display: none;
+    }
+
+    .services-slide__media {
+      aspect-ratio: 1 / 1;
+    }
+
+    .services-slide__info {
+      padding: 1rem 1.1rem 1.15rem;
+      gap: 0.55rem;
+    }
+
+    .services-slide__cta {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .services-nav {
+      width: 40px;
+      height: 40px;
     }
   }
 </style>

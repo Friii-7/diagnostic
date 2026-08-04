@@ -1,0 +1,276 @@
+---
+const whatsappNumber = '573117800103';
+
+const fordModels = [
+  'EcoSport',
+  'Escape',
+  'Explorer',
+  'Edge',
+  'Expedition',
+  'Bronco',
+  'Bronco Sport',
+  'Territory',
+  'Fiesta',
+  'Focus',
+  'Fusion',
+  'Mustang',
+  'Mustang Mach-E',
+  'Maverick',
+  'Ranger',
+  'F-150',
+  'F-250',
+  'F-350',
+  'Transit',
+  'Transit Connect',
+  'Everest',
+  'Otro modelo Ford',
+];
+---
+
+<dialog id="appointment-modal" class="appt-modal" aria-labelledby="appt-modal-title">
+  <div class="appt-panel">
+    <header class="appt-header">
+      <div>
+        <p class="appt-eyebrow">Diagnostic.S Motors</p>
+        <h2 id="appt-modal-title">Agendar cita</h2>
+      </div>
+      <button type="button" class="appt-close" aria-label="Cerrar" data-appt-close>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </header>
+
+    <form id="appointment-form" class="appt-form" novalidate>
+      <label class="appt-field">
+        <span>Nombre del cliente</span>
+        <input
+          type="text"
+          name="nombre"
+          id="appt-nombre"
+          placeholder="Ej. Juan Pérez"
+          autocomplete="name"
+          required
+        />
+      </label>
+
+      <label class="appt-field">
+        <span>Referencia del carro</span>
+        <select name="modelo" id="appt-modelo" required>
+          <option value="" disabled selected>Seleccione un modelo Ford</option>
+          {fordModels.map((model) => (
+            <option value={model}>{model}</option>
+          ))}
+        </select>
+      </label>
+
+      <label class="appt-field">
+        <span>Fecha de la cita</span>
+        <input type="date" name="fecha" id="appt-fecha" required />
+      </label>
+
+      <button type="submit" class="btn btn-primary appt-submit">
+        Enviar por WhatsApp
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script define:vars={{ whatsappNumber }}>
+  const modal = document.getElementById('appointment-modal');
+  const form = document.getElementById('appointment-form');
+  const fechaInput = document.getElementById('appt-fecha');
+
+  function todayISO() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  function openModal() {
+    if (!(modal instanceof HTMLDialogElement)) return;
+    if (fechaInput instanceof HTMLInputElement) {
+      fechaInput.min = todayISO();
+    }
+    modal.showModal();
+    document.getElementById('appt-nombre')?.focus();
+  }
+
+  function closeModal() {
+    if (!(modal instanceof HTMLDialogElement)) return;
+    modal.close();
+  }
+
+  document.querySelectorAll('[data-open-appointment]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  document.querySelectorAll('[data-appt-close]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const data = new FormData(form);
+    const nombre = String(data.get('nombre') || '').trim();
+    const modelo = String(data.get('modelo') || '').trim();
+    const fecha = String(data.get('fecha') || '').trim();
+
+    if (!nombre || !modelo || !fecha) {
+      form.reportValidity();
+      return;
+    }
+
+    const fechaFmt = new Date(`${fecha}T12:00:00`).toLocaleDateString('es-CO', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+
+    const message = [
+      'Hola, quiero agendar una cita:',
+      '',
+      `*Nombre:* ${nombre}`,
+      `*Referencia del carro:* ${modelo}`,
+      `*Fecha:* ${fechaFmt}`,
+    ].join('\n');
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+    form.reset();
+    closeModal();
+  });
+</script>
+
+<style>
+  .appt-modal {
+    width: min(100% - 2rem, 420px);
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-primary);
+  }
+
+  .appt-modal::backdrop {
+    background: rgba(1, 7, 56, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  .appt-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+  }
+
+  .appt-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .appt-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .appt-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .appt-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .appt-close:hover {
+    background: var(--bg-secondary);
+    color: var(--accent);
+  }
+
+  .appt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .appt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .appt-field span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .appt-field input,
+  .appt-field select {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .appt-field input:focus,
+  .appt-field select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+
+  .appt-field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c6180' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    padding-right: 2.5rem;
+  }
+
+  .appt-submit {
+    width: 100%;
+    margin-top: 0.35rem;
+  }
+</style>

@@ -9,14 +9,20 @@ const values = [
 ---
 
 <section id="mision" class="section mission">
-  <div class="container">
+  <div class="section-atmosphere" aria-hidden="true">
+    <span class="floating-shape floating-shape--md" style="top: 18%; left: 6%; animation-delay: 0s"></span>
+    <span class="floating-shape floating-shape--sm" style="top: 62%; right: 8%; animation-delay: 2s"></span>
+    <span class="floating-shape floating-shape--lg" style="bottom: 12%; left: 12%; animation-delay: 4s"></span>
+  </div>
+
+  <div class="container mission-inner">
     <div class="mission-header">
-      <span class="section-label">Nuestra identidad</span>
-      <h2 class="section-title">Misión, visión y valores</h2>
+      <span class="section-label reveal" style="--reveal-delay: 0s">Nuestra identidad</span>
+      <h2 class="section-title reveal" style="--reveal-delay: 0.12s">Misión, visión y valores</h2>
     </div>
 
     <div class="mission-grid">
-      <article class="mission-card mission-primary">
+      <article class="mission-card mission-primary card-lift reveal" style="--reveal-delay: 0.08s">
         <div class="card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -29,7 +35,7 @@ const values = [
         </p>
       </article>
 
-      <article class="mission-card">
+      <article class="mission-card card-lift reveal" style="--reveal-delay: 0.2s">
         <div class="card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -42,7 +48,7 @@ const values = [
         </p>
       </article>
 
-      <article class="mission-card mission-values">
+      <article class="mission-card mission-values card-lift reveal" style="--reveal-delay: 0.32s">
         <div class="card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -50,8 +56,8 @@ const values = [
         </div>
         <h3>Valores corporativos</h3>
         <ul class="values-list">
-          {values.map((value) => (
-            <li>
+          {values.map((value, i) => (
+            <li class="reveal" style={`--reveal-delay: ${0.4 + i * 0.08}s`}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <path d="M20 6L9 17l-5-5"/>
               </svg>
@@ -68,6 +74,7 @@ const values = [
   .mission {
     background: var(--bg-secondary);
     position: relative;
+    overflow: clip;
   }
 
   .mission::before {
@@ -78,6 +85,11 @@ const values = [
     right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  }
+
+  .mission-inner {
+    position: relative;
+    z-index: 1;
   }
 
   .mission-header {
@@ -106,17 +118,28 @@ const values = [
     border-radius: var(--radius-lg);
     padding: 2rem;
     height: 100%;
-    transition: border-color 0.3s, transform 0.3s;
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    transition-delay: var(--reveal-delay, 0s);
   }
 
-  .mission-card:hover {
-    border-color: rgba(0, 52, 120, 0.2);
-    transform: translateY(-4px);
+  .mission-card.is-visible {
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    transition-delay: 0s;
   }
 
   .mission-primary {
-    border-color: rgba(0, 52, 120, 0.15);
-    background: linear-gradient(180deg, rgba(0, 52, 120, 0.06) 0%, var(--bg-card) 40%);
+    border-color: rgba(1, 7, 56, 0.15);
+    background: linear-gradient(180deg, rgba(1, 7, 56, 0.06) 0%, var(--bg-card) 40%);
   }
 
   .card-icon {
@@ -125,7 +148,7 @@ const values = [
     justify-content: center;
     width: 44px;
     height: 44px;
-    background: rgba(0, 52, 120, 0.08);
+    background: rgba(1, 7, 56, 0.08);
     border-radius: var(--radius-sm);
     color: var(--accent);
     margin-bottom: 1.25rem;

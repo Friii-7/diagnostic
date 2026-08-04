@@ -2,6 +2,7 @@
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
+  { href: '#almacen', label: 'Almacén' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#mision', label: 'Misión' },
   { href: '#contacto', label: 'Contacto' },
@@ -21,20 +22,7 @@ const navLinks = [
     </nav>
 
     <div class="header-actions">
-      <a
-        href="https://astounding-sopapillas-c8b423.netlify.app/"
-        class="btn-icon catalog-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Comparar repuestos"
-        title="Comparar repuestos"
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9m0-18v18m0 0H5a2 2 0 0 1-2-2v-4"/>
-          <path d="M12 8h6M12 12h6M12 16h4"/>
-        </svg>
-      </a>
-      <a href="#contacto" class="btn btn-primary header-cta">Agendar cita</a>
+      <a href="#contacto" class="btn btn-primary header-cta" data-open-appointment>Agendar cita</a>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
@@ -82,7 +70,7 @@ const navLinks = [
 
   .header.scrolled {
     background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 2px 20px rgba(0, 52, 120, 0.08);
+    box-shadow: 0 2px 20px rgba(1, 7, 56, 0.08);
     border-bottom-color: var(--border);
   }
 
@@ -140,27 +128,6 @@ const navLinks = [
     font-size: 0.875rem;
   }
 
-  .btn-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    color: var(--accent);
-    background: linear-gradient(135deg, rgba(0, 52, 120, 0.1) 0%, rgba(0, 52, 120, 0.05) 100%);
-    border: 1px solid rgba(0, 52, 120, 0.15);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .btn-icon:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, rgba(0, 52, 120, 0.16) 0%, rgba(0, 52, 120, 0.08) 100%);
-    border-color: rgba(0, 52, 120, 0.3);
-    box-shadow: 0 4px 16px var(--accent-glow);
-  }
-
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -171,7 +138,7 @@ const navLinks = [
     padding: 0;
     background: transparent;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     cursor: pointer;
   }
 
